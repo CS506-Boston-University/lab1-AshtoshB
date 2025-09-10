@@ -47,7 +47,7 @@ class Add:
         # Should evaluate both operands and return their sum
         left = self.p1.evaluate(x_value)
         right = self.p2.evaluate(x_value)
-        return Int (left.i + right.i)
+        return Int(left.i + right.i)
 
     def simplify(self):
         # TODO (Optional Exercise): Implement simplification
@@ -78,7 +78,6 @@ class Mul:
         print(left, left.i, Int(left.i))
         return Int(left.i * right.i)
 
-
     def simplify(self):
         # TODO (Optional Exercise): Implement simplification
         # Examples: X * 0 -> 0, X * 1 -> X, 3 * 5 -> 15
@@ -95,16 +94,14 @@ class Sub:
         # TODO: Implement string representation for subtraction
         # Should handle parentheses similar to Mul class
         # Hint: Look at how Mul class handles parentheses
-        if isinstance(self.p1,Add) :
+        if isinstance(self.p1, Add):
             if isinstance(self.p2, Add):
                 return "( " + repr(self.p1) + " ) - ( " + repr(self.p2) + " )"
-            return "( " + repr(self.p1) + " ) - " + repr(self.p2) 
+            return "( " + repr(self.p1) + " ) - " + repr(self.p2)
         if isinstance(self.p2, Add):
-            return repr(self.p1) + " - ( " + repr(self.p2) + " )" 
+            return repr(self.p1) + " - ( " + repr(self.p2) + " )"
 
         return repr(self.p1) + " - " + repr(self.p2)
-
-
 
     def evaluate(self, x_value):
         # TODO: Implement evaluation for subtraction
@@ -129,15 +126,14 @@ class Div:
         # TODO: Implement string representation for division
         # Should handle parentheses similar to Mul class
         # Hint: Look at how Mul class handles parentheses
-        if isinstance(self.p1,Add) or isinstance(self.p1, Sub):
+        if isinstance(self.p1, Add) or isinstance(self.p1, Sub):
             if isinstance(self.p2, Add) or isinstance(self.p2, Sub):
                 return "( " + repr(self.p1) + " ) / ( " + repr(self.p2) + " )"
-            return "( " + repr(self.p1) + " ) / " + repr(self.p2) 
+            return "( " + repr(self.p1) + " ) / " + repr(self.p2)
         if isinstance(self.p2, Add) or isinstance(self.p2, Sub):
-            return repr(self.p1) + " / ( " + repr(self.p2) + " )" 
+            return repr(self.p1) + " / ( " + repr(self.p2) + " )"
 
         return repr(self.p1) + " / " + repr(self.p2)
-
 
     def evaluate(self, x_value):
         # TODO: Implement evaluation for division
